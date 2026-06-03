@@ -28,6 +28,14 @@
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,10 +60,12 @@
 
 body {
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -64,6 +74,11 @@ body {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding: 0;
+
+  @media (max-width: 480px) {
+    border-inline: none;
+  }
 }
 
 h1,
@@ -81,7 +96,16 @@ h1 {
     font-size: 36px;
     margin: 20px 0;
   }
+  @media (max-width: 640px) {
+    font-size: 28px;
+    margin: 16px 12px;
+  }
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin: 12px 8px;
+  }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
@@ -90,9 +114,21 @@ h2 {
   @media (max-width: 1024px) {
     font-size: 20px;
   }
+  @media (max-width: 640px) {
+    font-size: 18px;
+  }
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
 }
+
 p {
   margin: 0;
+  padding: 0 12px;
+
+  @media (max-width: 480px) {
+    padding: 0 8px;
+  }
 }
 
 code,
@@ -108,4 +144,10 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+  word-break: break-word;
+
+  @media (max-width: 480px) {
+    font-size: 13px;
+    padding: 2px 4px;
+  }
 }
