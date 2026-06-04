@@ -1,30 +1,33 @@
 import { motion } from "framer-motion";
+import heroImage from "../assets/hero.png";
 
-export default function Intro() {
+export default function Intro({ onNext }) {
   return (
-    <section
-      style={{
-        display:"flex",
-        flexDirection:"column",
-        justifyContent:"center",
-        alignItems:"center"
-      }}
-    >
-      <motion.h1
-        initial={{opacity:0,y:-50}}
-        animate={{opacity:1,y:0}}
-        transition={{duration:1}}
+    <section className="hero-section" id="inicio">
+      <motion.div
+        className="hero-copy"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
       >
-        ❤️ Para o Amor da Minha Vida ❤️
-      </motion.h1>
+        <span className="eyebrow">Um presente digital</span>
+        <h1>Para o amor da minha vida</h1>
+        <p>
+          Uma retrospectiva feita com carinho para lembrar o quanto a nossa
+          historia e especial.
+        </p>
+        <button className="primary-action" type="button" onClick={onNext}>Abrir surpresa</button>
+      </motion.div>
 
-      <motion.p
-        initial={{opacity:0}}
-        animate={{opacity:1}}
-        transition={{delay:1}}
+      <motion.div
+        className="hero-photo"
+        initial={{ opacity: 0, scale: 0.92, rotate: -4 }}
+        animate={{ opacity: 1, scale: 1, rotate: -2 }}
+        transition={{ delay: 0.2, duration: 0.9 }}
       >
-        Uma surpresa feita especialmente para você
-      </motion.p>
+        <img src={heroImage} alt="Memoria especial do casal" />
+        <span>Nossa historia</span>
+      </motion.div>
     </section>
   )
 }

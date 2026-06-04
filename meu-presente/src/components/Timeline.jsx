@@ -2,32 +2,27 @@ import { motion } from "framer-motion";
 import timelineData from "../data/timelineData";
 
 export default function Timeline() {
-
   return (
-    <section
-      style={{
-        padding:"50px"
-      }}
-    >
-      <h1>✨ Nossa História ✨</h1>
+    <section className="section timeline-section" id="historia">
+      <span className="eyebrow">Linha do tempo</span>
+      <h2>Nossa historia</h2>
 
-      {timelineData.map((item,index)=>(
-        <motion.div
-          key={index}
-          initial={{x:-100,opacity:0}}
-          whileInView={{x:0,opacity:1}}
-          transition={{duration:0.8}}
-          style={{
-            marginTop:"30px",
-            padding:"20px",
-            background:"rgba(255,255,255,.15)",
-            borderRadius:"20px"
-          }}
-        >
-          <h3>{item.date}</h3>
-          <p>{item.title}</p>
-        </motion.div>
-      ))}
+      <div className="timeline-list">
+        {timelineData.map((item, index) => (
+          <motion.div
+            key={`${item.date}-${item.title}`}
+            className="timeline-item"
+            initial={{ x: index % 2 === 0 ? -70 : 70, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+          >
+            <span>{item.date}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </motion.div>
+        ))}
+      </div>
     </section>
   )
 }
