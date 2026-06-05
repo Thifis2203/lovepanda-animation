@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "../assets/hero.png";
+import heroImage from "../assets/hero.jpg";
 
 export default function Intro({ onNext }) {
   return (
@@ -11,10 +11,10 @@ export default function Intro({ onNext }) {
         transition={{ duration: 0.9 }}
       >
         <span className="eyebrow">Um presente digital</span>
-        <h1>Para o amor da minha vida</h1>
+        <h1>Para o meu presentinho de mamãe Obá</h1>
         <p>
           Uma retrospectiva feita com carinho para lembrar o quanto a nossa
-          historia e especial.
+          história é especial.
         </p>
         <button className="primary-action" type="button" onClick={onNext}>Abrir surpresa</button>
       </motion.div>
@@ -26,7 +26,7 @@ export default function Intro({ onNext }) {
         transition={{ delay: 0.2, duration: 0.9 }}
       >
         <img src={heroImage} alt="Memoria especial do casal" />
-        <span>Nossa historia</span>
+        <span>Nossa história</span>
       </motion.div>
     </section>
   )

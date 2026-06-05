@@ -44,8 +44,8 @@ export default function Quiz({ onQuizComplete }) {
 
   return (
     <section className="section quiz-section" id="quiz">
-      <span className="eyebrow">Quiz do meu coracao</span>
-      <h2>O quanto voce sabe sobre o que eu amo em voce?</h2>
+      <span className="eyebrow">Quiz do meu coração</span>
+      <h2>O quanto voce sabe sobre o que eu amo em você?</h2>
 
       <div className="quiz-shell">
         <div className="quiz-progress" aria-hidden="true">
@@ -67,8 +67,8 @@ export default function Quiz({ onQuizComplete }) {
               </div>
               <strong>{score}/{quizData.length}</strong>
               <p>
-                Independente da pontuacao, a verdade e simples: eu amo o seu
-                jeito, admiro quem voce e e escolheria voce de novo.
+                Independente da pontuacao, a verdade é simples: eu amo o seu
+                jeito, admiro quem você é e te escolheria mil vezes.
               </p>
               <button className="quiz-next" type="button" onClick={restartQuiz}>
                 <FaRotateRight />

@@ -198,7 +198,7 @@ p {
 
 .music-control {
   position: fixed;
-  z-index: 30;
+  z-index: 40;
   right: 18px;
   top: 18px;
   display: flex;
@@ -221,6 +221,10 @@ p {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
   gap: 7px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(26, 9, 23, 0.85);
+  backdrop-filter: blur(12px);
 }
 
 .story-progress button {
@@ -619,11 +623,13 @@ p {
   overflow: hidden;
 }
 
-.memory-card img {
+.memory-card img,
+.memory-card video {
   width: 100%;
   aspect-ratio: 4 / 5;
   display: block;
   object-fit: cover;
+  background: #000;
 }
 
 .memory-card div {
@@ -812,7 +818,7 @@ main > section {
   .section,
   .hero-section {
     min-height: auto;
-    padding: 84px 18px 108px;
+    padding: 60px 18px 108px;
   }
 
   .hero-section,
@@ -860,7 +866,7 @@ main > section {
   }
 
   .story-progress {
-    top: 66px;
+    top: 12px;
     width: calc(100% - 28px);
     gap: 5px;
   }
@@ -882,6 +888,7 @@ main > section {
   .wrapped-grid,
   .gallery-grid {
     grid-template-columns: 1fr;
+    margin-top: 12px;
   }
 
   .counter-card {
