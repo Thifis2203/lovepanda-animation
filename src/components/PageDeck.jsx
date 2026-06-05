@@ -33,9 +33,11 @@ const pageVariants = {
 
 export default function PageDeck({ pages }) {
   const [[pageIndex, direction], setPage] = useState([0, 1]);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   const [quizComplete, setQuizComplete] = useState(false);
   const timeoutRef = useRef(null);
+  const pageFrameRef = useRef(null);
+  const audioRef = useRef(null);
   const activePage = pages[pageIndex];
   const ActiveComponent = activePage.Component;
 
@@ -57,13 +59,14 @@ export default function PageDeck({ pages }) {
   useEffect(() => {
     window.clearTimeout(timeoutRef.current);
 
+    const isPlaying = true;
     if (!isPlaying || pageIndex === pages.length - 1 || !canAdvance) {
       return undefined;
     }
 
     timeoutRef.current = window.setTimeout(goNext, activePage.duration);
     return () => window.clearTimeout(timeoutRef.current);
-  }, [activePage.duration, canAdvance, isPlaying, pageIndex, pages.length]);
+  }, [activePage.duration, canAdvance, pageIndex, pages.length]);
 
   useEffect(() => {
     if (activePage.id !== "quiz") {
@@ -72,12 +75,38 @@ export default function PageDeck({ pages }) {
   }, [activePage.id]);
 
   useEffect(() => {
+    if (pageFrameRef.current) {
+      const section = pageFrameRef.current.querySelector("section");
+      if (section) {
+        section.scrollTop = 0;
+      }
+    }
+  }, [pageIndex]);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.loop = true;
+    if (isMusicPlaying) {
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.then === "function") {
+        playPromise.catch(() => {
+          setIsMusicPlaying(false);
+        });
+      }
+    } else {
+      audio.pause();
+    }
+  }, [isMusicPlaying]);
+
+  useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === "ArrowRight" || event.key === "PageDown") goNext();
       if (event.key === "ArrowLeft" || event.key === "PageUp") goPrevious();
       if (event.key === " ") {
         event.preventDefault();
-        setIsPlaying((playing) => !playing);
+        setIsMusicPlaying((playing) => !playing);
       }
     };
 
@@ -107,8 +136,11 @@ export default function PageDeck({ pages }) {
         ))}
       </div>
 
+      <audio ref={audioRef} src="Nossa-musica.mp3" preload="auto" />
+
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
+          ref={pageFrameRef}
           key={activePage.id}
           className="page-frame"
           custom={direction}
@@ -126,8 +158,8 @@ export default function PageDeck({ pages }) {
         <button type="button" onClick={goPrevious} disabled={pageIndex === 0} aria-label="Pagina anterior">
           <FaChevronLeft />
         </button>
-        <button type="button" onClick={() => setIsPlaying((playing) => !playing)} aria-label="Pausar ou continuar">
-          {isPlaying ? <FaPause /> : <FaPlay />}
+        <button type="button" onClick={() => setIsMusicPlaying((playing) => !playing)} aria-label={isMusicPlaying ? "Pausar música" : "Tocar música"}>
+          {isMusicPlaying ? <FaPause /> : <FaPlay />}
         </button>
         <button type="button" onClick={goNext} disabled={pageIndex === pages.length - 1} aria-label="Proxima pagina">
           <FaChevronRight />

@@ -10,11 +10,11 @@ export default function LoveLetter() {
           sequence={[
             "Meu amor...",
             1000,
-            "Obrigado por fazer meus dias mais felizes.",
+            "Obrigada por fazer meus dias mais felizes.",
             1200,
             "Cada detalhe seu virou uma parte bonita da minha vida.",
             1200,
-            "Eu te amo infinitamente.",
+            "Eu te vivo infinitamente.",
           ]}
           speed={45}
           repeat={0}

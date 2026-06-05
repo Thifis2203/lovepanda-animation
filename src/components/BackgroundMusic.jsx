@@ -24,11 +24,11 @@ export default function BackgroundMusic() {
 
   return (
     <div className="music-control">
-      <audio ref={audioRef} src="/musica.mp3" loop preload="none" />
-      <button type="button" onClick={toggleMusic} aria-label="Tocar musica">
+      <audio ref={audioRef} src="Nossa-musica.mp3" loop preload="none" />
+      <button type="button" onClick={toggleMusic} aria-label="Tocar música">
         {isPlaying ? <FaPause /> : <FaPlay />}
       </button>
-      <span>Nossa musica</span>
+      <span>Nossa música</span>
     </div>
   )
 }

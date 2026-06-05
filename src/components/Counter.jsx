@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Counter() {
-  const startDate = new Date("2024-06-12T00:00:00");
+  const startDate = new Date("2026-04-19T00:00:00");
   const [timeTogether, setTimeTogether] = useState({
     days: 0,
     hours: 0,
@@ -35,8 +35,8 @@ export default function Counter() {
 
   return (
     <section className="section counter-section" id="contador">
-      <span className="eyebrow">Desde 12/06/2024</span>
-      <h2>Nosso tempo juntos</h2>
+      <span className="eyebrow">Desde 19/04/2026</span>
+      <h2>Nosso tempo juntas</h2>
       <div className="counter-grid">
         {units.map(([label, value]) => (
           <div className="counter-card" key={label}>

@@ -4,7 +4,7 @@ import galleryData from "../data/galleryData";
 export default function Gallery() {
   return (
     <section className="section gallery-section" id="fotos">
-      <span className="eyebrow">Album de memorias</span>
+      <span className="eyebrow">Album de memórias</span>
       <h2>Nossos momentos favoritos</h2>
 
       <div className="gallery-grid">
@@ -17,7 +17,21 @@ export default function Gallery() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ delay: index * 0.08, duration: 0.6 }}
           >
-            <img src={photo.image} alt={photo.title} />
+            {photo.video ? (
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={photo.poster}
+                preload="metadata"
+              >
+                <source src={photo.video} type="video/mp4" />
+                Seu navegador não suporta este vídeo.
+              </video>
+            ) : (
+              <img src={photo.image} alt={photo.title} />
+            )}
             <div>
               <span>{photo.date}</span>
               <h3>{photo.title}</h3>

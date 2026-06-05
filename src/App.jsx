@@ -7,14 +7,12 @@ import Timeline from './components/Timeline'
 import LoveLetter from './components/LoveLetter'
 import FinalScreen from './components/FinalScreen'
 import FloatingHearts from './components/FloatingHearts'
-import BackgroundMusic from './components/BackgroundMusic'
 import PageDeck from './components/PageDeck'
 
 function App() {
   return (
     <main>
       <FloatingHearts />
-      <BackgroundMusic />
       <PageDeck
         pages={[
           { id: "inicio", label: "Inicio", duration: 9000, Component: Intro },

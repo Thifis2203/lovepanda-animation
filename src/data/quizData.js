@@ -3,17 +3,17 @@ const quizData = [
     question: "O que eu mais admiro em voce?",
     options: [
       {
-        text: "Seu jeito de cuidar de tudo com amor",
+        text: "Seu jeito de cuidar de mim, de se preocupar e de me amar por completo",
         isCorrect: true,
-        feedback: "Exatamente. Voce tem um cuidado que deixa o mundo mais leve.",
+        feedback: "Exatamente. Você cuida de mim muito bem e eu me sinto extremammente feliz e amada por ter você comigo!",
       },
       {
         text: "Sua mania de implicar comigo",
-        feedback: "Tambem amo isso, mas tem algo ainda maior.",
+        feedback: "Essa não, essa função é minha kkkkkkkk",
       },
       {
-        text: "Sua habilidade de escolher comida",
-        feedback: "Importantissimo, mas nao e a resposta principal.",
+        text: "Sua fé com o seu espiritual",
+        feedback: "Te admiro muito por isso e tenho muito orgulho da sua evolução, mas não é a resposta que eu estava pensando",
       },
     ],
   },
@@ -21,17 +21,17 @@ const quizData = [
     question: "Qual detalhe seu sempre me ganha?",
     options: [
       {
-        text: "Seu sorriso quando fica feliz de verdade",
+        text: "Seu cheiro único e delicioso",
         isCorrect: true,
-        feedback: "Sim. Esse sorriso poderia virar meu lugar favorito.",
+        feedback: "Sim. Seu cheiro me acalma e me faz sentir em casa",
       },
       {
-        text: "Quando voce fala que esta com sono",
-        feedback: "Fofo demais, mas eu estava pensando em outro detalhe.",
+        text: "Quando você fala que me ama",
+        feedback: "Eu adoro, mas seu cheiro me ganha mais kkkkkkkk",
       },
       {
-        text: "Quando voce me olha seria",
-        feedback: "Eu respeito esse olhar, mas nao foi dessa vez.",
+        text: "Quando você fica bravinha",
+        feedback: "Você fica uma delicinha bravinha, mas morro de medo kkkkkkkk",
       },
     ],
   },
@@ -41,33 +41,33 @@ const quizData = [
       {
         text: "Paz, vontade e uma felicidade enorme",
         isCorrect: true,
-        feedback: "Essa e a resposta. Pensar na gente me da vontade de continuar.",
+        feedback: "Essa é a resposta. Pensar na gente me da vontade de continuar",
       },
       {
-        text: "Medo de lavar a louca",
-        feedback: "Isso talvez tambem, mas eu aceito o desafio.",
+        text: "Medo de você me clocar pra limpar a casa",
+        feedback: "Isso talvez também, não esquece que quando formos morar juntas você limpa a casa e eu cozinho, combinado? kkkkkkkk",
       },
       {
-        text: "Vontade de fugir da academia",
-        feedback: "A tentacao existe, mas nao e o sentimento principal.",
+        text: "Vontade de manter em carcere privado",
+        feedback: "A tentação existe, mas eu estou tentando não ser tóxica kkkkkkkkkk",
       },
     ],
   },
   {
-    question: "Qual e uma das coisas que eu mais amo em voce?",
+    question: "Qual é uma das coisas que eu mais amo em você?",
     options: [
       {
-        text: "A forma como voce faz ate dias comuns parecerem especiais",
+        text: "A forma como você me faz feliz até nos dias mais difíceis.",
         isCorrect: true,
-        feedback: "Sim. Com voce, o simples fica bonito.",
+        feedback: "Sim. Com voce, mesmo nos dias mais difíceis, eu me sinto amada e feliz. Você é minha paz e meu porto seguro.",
       },
       {
         text: "Seu poder de demorar para responder",
-        feedback: "Isso eu relevo por amor, viu.",
+        feedback: "Claro que não. Você nem faz isso kkkkkkkk",
       },
       {
-        text: "Seu talento para me vencer em discussao",
-        feedback: "Esse talento e real, mas tem uma resposta mais romantica.",
+        text: "Seu talento em me gravar a qualquer momento",
+        feedback: "Adoro quando vocêgrava vídeos nosso, mas tem uma resposta mais romântica.",
       },
     ],
   },

@@ -5,7 +5,7 @@ export default function Timeline() {
   return (
     <section className="section timeline-section" id="historia">
       <span className="eyebrow">Linha do tempo</span>
-      <h2>Nossa historia</h2>
+      <h2>Nossa história</h2>
 
       <div className="timeline-list">
         {timelineData.map((item, index) => (
