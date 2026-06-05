@@ -34,6 +34,7 @@ const pageVariants = {
 export default function PageDeck({ pages }) {
   const [[pageIndex, direction], setPage] = useState([0, 1]);
   const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false);
   const [quizComplete, setQuizComplete] = useState(false);
   const timeoutRef = useRef(null);
   const pageFrameRef = useRef(null);
@@ -92,6 +93,7 @@ export default function PageDeck({ pages }) {
       const playPromise = audio.play();
       if (playPromise && typeof playPromise.then === "function") {
         playPromise.catch(() => {
+          setAutoplayBlocked(true);
           setIsMusicPlaying(false);
         });
       }
@@ -99,6 +101,26 @@ export default function PageDeck({ pages }) {
       audio.pause();
     }
   }, [isMusicPlaying]);
+
+  useEffect(() => {
+    if (!autoplayBlocked) return;
+
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handleFirstInteraction = () => {
+      setIsMusicPlaying(true);
+      audio.play().catch(() => {});
+    };
+
+    window.addEventListener("pointerdown", handleFirstInteraction, { once: true });
+    window.addEventListener("keydown", handleFirstInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener("pointerdown", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
+    };
+  }, [autoplayBlocked]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -136,7 +158,7 @@ export default function PageDeck({ pages }) {
         ))}
       </div>
 
-      <audio ref={audioRef} src="Nossa-musica.mp3" preload="auto" />
+      <audio ref={audioRef} src="Nossa-musica.mp3" preload="auto" autoPlay playsInline />
 
       <AnimatePresence initial={false} custom={direction} mode="wait">
         <motion.div
