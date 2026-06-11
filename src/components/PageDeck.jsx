@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa";
 
 const transition = {
@@ -75,14 +75,14 @@ export default function PageDeck({ pages }) {
     }
   }, [activePage.id]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (pageFrameRef.current) {
-      const section = pageFrameRef.current.querySelector("section");
+      const section = pageFrameRef.current.querySelector(`section#${activePage.id}`) || pageFrameRef.current.querySelector("section");
       if (section) {
         section.scrollTop = 0;
       }
     }
-  }, [pageIndex]);
+  }, [pageIndex, activePage.id]);
 
   useEffect(() => {
     const audio = audioRef.current;

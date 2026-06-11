@@ -13,8 +13,7 @@ export default function Gallery() {
             className="memory-card"
             key={photo.title}
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.25 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.08, duration: 0.6 }}
           >
             {photo.video ? (

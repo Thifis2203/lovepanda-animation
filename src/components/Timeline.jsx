@@ -13,9 +13,8 @@ export default function Timeline() {
             key={`${item.date}-${item.title}`}
             className="timeline-item"
             initial={{ x: index % 2 === 0 ? -70 : 70, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7, delay: index * 0.05 }}
           >
             <span>{item.date}</span>
             <h3>{item.title}</h3>

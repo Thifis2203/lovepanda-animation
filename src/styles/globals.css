@@ -811,6 +811,16 @@ main > section {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .counter-section,
+  .wrapped-section,
+  .gallery-section,
+  .quiz-section,
+  .timeline-section,
+  .letter-section,
+  .final-section {
+    justify-content: flex-start;
+  }
+
   .timeline-list::before {
     left: 0;
   }
